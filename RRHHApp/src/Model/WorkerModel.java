@@ -15,9 +15,11 @@ import java.util.List;
  * @author Sistema30
  */
 public class WorkerModel {
+    private int i;
     private List<Worker> workers;
 
     public WorkerModel() {
+        i=0;
         workers=new ArrayList<>();
     }
 
@@ -26,6 +28,7 @@ public class WorkerModel {
     }
 
     public boolean add(Worker t){
+        t.setId(++i);
         return workers.add(t);
     }
     
@@ -53,7 +56,7 @@ public class WorkerModel {
     }
     private int byIDindex(int id){
         Collections.sort(workers, (Worker o, Worker o1)->o.getId()-o1.getId());
-        int index=Collections.binarySearch(workers,new Worker(id, null, null, null, null, null, Worker.NIVEL_ACADEMICO.Máster, 0.0f),
+        int index=Collections.binarySearch(workers,new Worker(id, null, null, null, null, null, null, 0.0f),
                 (Worker o, Worker o1)->o.getId()-o1.getId());
         return index;
     }

@@ -5,7 +5,10 @@
  */
 package UI;
 
+import Model.TabModel;
+import Model.WorkerModel;
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,6 +16,11 @@ import javax.swing.JFrame;
  */
 public class Main extends javax.swing.JFrame {
     private final Object[] header={"ID", "Nombres", "Apellidos", "N° INSS", "Salario Base", "IR", "INSS", "Salario neto"};
+    private final Object[] wheader={"ID", "Cedula", "INSS", "Nombres", "Apellidos", "Dirección", "Titulo", "Salario Base"};
+    private DefaultTableModel tabmod;
+    private DefaultTableModel wtabmod;
+    private TabModel tmod;
+    private WorkerModel mod;
     /**
      * Creates new form Main
      */
@@ -31,18 +39,13 @@ public class Main extends javax.swing.JFrame {
 
         mainpane = new javax.swing.JScrollPane();
         Tab = new javax.swing.JTable();
+        workerTab = new javax.swing.JScrollPane();
+        WTab = new javax.swing.JTable();
+        TabPane = new javax.swing.JTabbedPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         Planilla = new javax.swing.JMenu();
         addmnitem = new javax.swing.JMenuItem();
         Opciones = new javax.swing.JMenu();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setExtendedState(JFrame.MAXIMIZED_BOTH);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
 
         Tab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,7 +60,27 @@ public class Main extends javax.swing.JFrame {
         ));
         mainpane.setViewportView(Tab);
 
-        getContentPane().add(mainpane, java.awt.BorderLayout.CENTER);
+        WTab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        workerTab.setViewportView(WTab);
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+        getContentPane().add(TabPane, java.awt.BorderLayout.CENTER);
 
         Planilla.setText("Planilla");
 
@@ -86,7 +109,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_addmnitemActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        TabPane.addTab("Trabajadores", null, workerTab, "This is");
+        tabmod=new DefaultTableModel(new Object[0][0], header);
+        wtabmod=new DefaultTableModel(new Object[0][0], wheader);
+        Tab.setModel(tabmod);
+        WTab.setModel(wtabmod);
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -128,8 +155,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu Opciones;
     private javax.swing.JMenu Planilla;
     private javax.swing.JTable Tab;
+    private javax.swing.JTabbedPane TabPane;
+    private javax.swing.JTable WTab;
     private javax.swing.JMenuItem addmnitem;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane mainpane;
+    private javax.swing.JScrollPane workerTab;
     // End of variables declaration//GEN-END:variables
 }

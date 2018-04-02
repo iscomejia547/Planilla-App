@@ -16,14 +16,13 @@ public class Worker {
     private String names;
     private String surname;
     private String address;
-    private NIVEL_ACADEMICO title;
+    private String title;
     private float base_income;
-    public static enum NIVEL_ACADEMICO{Bachiller, Técnico, Licenciado, Máster, Dr};
 
     public Worker() {
     }
 
-    public Worker(int id, String cedula, String no_inss, String names, String surname, String address, NIVEL_ACADEMICO title, float base_income) {
+    public Worker(int id, String cedula, String no_inss, String names, String surname, String address, String title, float base_income) {
         this.id = id;
         this.cedula = cedula;
         this.no_inss = no_inss;
@@ -82,11 +81,11 @@ public class Worker {
         this.address = address;
     }
 
-    public NIVEL_ACADEMICO getTitle() {
+    public String getTitle() {
         return title;
     }
 
-    public void setTitle(NIVEL_ACADEMICO title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
