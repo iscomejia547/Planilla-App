@@ -12,7 +12,7 @@ import javax.swing.JFrame;
  * @author Sistema30
  */
 public class Main extends javax.swing.JFrame {
-
+    private final Object[] header={"ID", "Nombres", "Apellidos", "N° INSS", "Salario Base", "IR", "INSS", "Salario neto"};
     /**
      * Creates new form Main
      */
@@ -29,16 +29,22 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        mainpane = new javax.swing.JScrollPane();
+        Tab = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         Planilla = new javax.swing.JMenu();
+        addmnitem = new javax.swing.JMenuItem();
         Opciones = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(JFrame.MAXIMIZED_BOTH);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,11 +55,21 @@ public class Main extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        mainpane.setViewportView(Tab);
 
-        getContentPane().add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        getContentPane().add(mainpane, java.awt.BorderLayout.CENTER);
 
         Planilla.setText("Planilla");
+
+        addmnitem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        addmnitem.setText("Agregar");
+        addmnitem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addmnitemActionPerformed(evt);
+            }
+        });
+        Planilla.add(addmnitem);
+
         jMenuBar1.add(Planilla);
 
         Opciones.setText("Opciones");
@@ -64,6 +80,14 @@ public class Main extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(416, 339));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addmnitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmnitemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addmnitemActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -103,8 +127,9 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Opciones;
     private javax.swing.JMenu Planilla;
+    private javax.swing.JTable Tab;
+    private javax.swing.JMenuItem addmnitem;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane mainpane;
     // End of variables declaration//GEN-END:variables
 }
