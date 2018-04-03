@@ -92,7 +92,7 @@ public class AddDlg extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 155;
+        gridBagConstraints.ipadx = 105;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(txtxcedula, gridBagConstraints);
 
@@ -104,7 +104,7 @@ public class AddDlg extends javax.swing.JDialog {
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 155;
+        gridBagConstraints.ipadx = 130;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(txtinss, gridBagConstraints);
 
@@ -138,11 +138,11 @@ public class AddDlg extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(txtaddress, gridBagConstraints);
 
-        cmbtitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbtitle.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bachiller", "Técnico Medio", "Profesional", "Licenciado", "Máster", "Dr." }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 5;
-        gridBagConstraints.ipadx = 105;
+        gridBagConstraints.ipadx = 70;
         gridBagConstraints.insets = new java.awt.Insets(5, 10, 5, 10);
         jPanel2.add(cmbtitle, gridBagConstraints);
 
@@ -247,6 +247,7 @@ public class AddDlg extends javax.swing.JDialog {
 
     private void addbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addbtnActionPerformed
         saveWorker();
+        cleartxt();
     }//GEN-LAST:event_addbtnActionPerformed
 
     private void ssvebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ssvebtnActionPerformed
@@ -261,6 +262,15 @@ public class AddDlg extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(this, "No se agregó correctamente", "", JOptionPane.ERROR_MESSAGE);
         }
+    }
+    private void cleartxt(){
+        txtxcedula.setText("");
+        txtinss.setText("");
+        txtxname.setText("");
+        txtsurname.setText("");
+        txtaddress.setText("");
+        cmbtitle.setSelectedIndex(0);
+        txtsalario.setText("");
     }
     
     private void noLetter(java.awt.event.KeyEvent evt){

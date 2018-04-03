@@ -110,11 +110,16 @@ public class Main extends javax.swing.JFrame {
         AddDlg dl=new AddDlg(this, true);
         dl.setMod(mod);
         dl.setVisible(true);
-        Object[][] matrix=tmod.toMatrix(mod.getWorkers());
-        wtabmod=new DefaultTableModel(matrix, wheader);
-        WTab.setModel(wtabmod);
+        fireTables();
     }//GEN-LAST:event_addmnitemActionPerformed
-
+    private void fireTables(){
+        Object[][] listed=tmod.toMatrix(mod.getWorkers());
+        wtabmod=new DefaultTableModel(listed, wheader);
+        WTab.setModel(wtabmod);
+        Object[][] plan=tmod.plan(mod.getWorkers(), header);
+        tabmod=new DefaultTableModel(plan, header);
+        Tab.setModel(tabmod);
+    }
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         TabPane.addTab("Trabajadores", null, workerTab, "This is");
         TabPane.addTab("Planilla", null, mainpane, ":v");
