@@ -103,7 +103,15 @@ public class Worker {
     }
     
     public Object[] toArray(){
-        Object[] array={this.id, this.cedula, this.no_inss, this.names, this.surname, this.title, this.base_income};
+        Object[] array=new Object[8];
+        array[0]=this.getId();
+        array[1]=this.getCedula();
+        array[2]=this.getNo_inss();
+        array[3]=this.getNames();
+        array[4]=this.getSurname();
+        array[5]=this.getAddress();
+        array[6]=this.getTitle();
+        array[7]=this.getBase_income();
         return array;
     }
     

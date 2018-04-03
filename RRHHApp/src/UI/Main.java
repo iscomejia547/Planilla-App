@@ -25,6 +25,8 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        tmod=new TabModel();
+        mod=new WorkerModel();
         initComponents();
     }
 
@@ -105,11 +107,17 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addmnitemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addmnitemActionPerformed
-        // TODO add your handling code here:
+        AddDlg dl=new AddDlg(this, true);
+        dl.setMod(mod);
+        dl.setVisible(true);
+        Object[][] matrix=tmod.toMatrix(mod.getWorkers());
+        wtabmod=new DefaultTableModel(matrix, wheader);
+        WTab.setModel(wtabmod);
     }//GEN-LAST:event_addmnitemActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         TabPane.addTab("Trabajadores", null, workerTab, "This is");
+        TabPane.addTab("Planilla", null, mainpane, ":v");
         tabmod=new DefaultTableModel(new Object[0][0], header);
         wtabmod=new DefaultTableModel(new Object[0][0], wheader);
         Tab.setModel(tabmod);
